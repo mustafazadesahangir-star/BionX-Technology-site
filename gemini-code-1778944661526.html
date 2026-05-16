@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BionX Technology | Crown Browser</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- KİBERPANK VƏ MODERN EMPİRE ESTETİKASI --- */
+        :root {
+            --bg-color: #0a0b10;
+            --card-bg: #12141c;
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --text-main: #ffffff;
+            --text-muted: #8b949e;
+            --glow: drop-shadow(0 0 15px rgba(0, 242, 254, 0.6));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- ARXA FON EFFEKTİ --- */
+        .bg-glow {
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- NAVİQASİYA --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 10%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 11, 16, 0.7);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+            filter: var(--glow);
+        }
+
+        /* --- HERO BÖLMƏSİ (ANA SƏHİFƏ) --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 100px 10% 80px 10%;
+            position: relative;
+        }
+
+        .version-badge {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(180deg, #ffffff 0%, #a5am6f 100%);
+            -webkit-background-clip: text;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* --- YÜKLƏ DÜYMƏSİ --- */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-cyan));
+            color: #000;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.3);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 242, 254, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .btn-download i {
+            font-size: 20px;
+        }
+
+        .meta-info {
+            margin-top: 15px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .meta-info span {
+            color: #fff;
+            font-family: monospace;
+            background: rgba(255,255,255,0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* --- XÜSUSİYYƏTLƏR (FEATURES) BÖLMƏSİ --- */
+        .features {
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 242, 254, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card .icon {
+            font-size: 32px;
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 10%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        footer a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        /* RESPONSIBLITY (MOBİL UYĞUNLUQ) */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 40px; }
+            nav { padding: 20px 5%; }
+            .nav-links { display: none; } /* Mobil menyu sadəliyi üçün */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <nav>
+        <div class="logo">BionX Technology</div>
+        <div class="nav-links">
+            <a href="#features">Xüsusiyyətlər</a>
+            <a href="https://github.com/mustafazadesahangir-star/Crown-Browser" target="_blank">GitHub</a>
+            <a href="#">Dəstək</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="version-badge">Stabil Versiya V1.1 Artıq Hazırdır</div>
+        <h1>İnterneti <span>Crown Browser</span> ilə Fəth Et</h1>
+        <p>Brave və Edge kimi nəhənglərin ağır, izləyici dolu mexanizmlərini unudun. BionX tərəfindən sürət, yüngüllük və təmiz performans üçün sıfırdan kodlanmış yeni nəsil masaüstü brauzer.</p>
+        
+        <a href="https://github.com/mustafazadesahangir-star/Crown-Browser/releases/download/Crown-Browser_V1.1_Full/CrownBrowser.exe" class="btn-download">
+            <i class="fa-solid fa-download"></i> Windows üçün Yüklə
+        </a>
+
+        <div class="meta-info">
+            Format: <span>.exe (No-Console)</span> | Platforma: <span>Windows 10 / 11 / 7 (MBR)</span>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="card">
+            <div class="icon"><i class="fa-solid fa-bolt"></i></div>
+            <h3>Maksimum Sürət</h3>
+            <p>Arxa planda heç bir gərəksiz telemetriya və izləyici işləmir. Prosessor və RAM qaynaqlarını yalnız veb-səhifələr üçün istifadə edir.</p>
+        </div>
+        <div class="card">
+            <div class="icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3>Minimalist İnterfeys</h3>
+            <p>PyQt6 memarlığı üzərində qurulmuş, `--noconsole` mühərriki ilə tamamilə təmiz, qara və premium qrafik istifadəçi interfeysi.</p>
+        </div>
+        <div class="card">
+            <div class="icon"><i class="fa-solid fa-code"></i></div>
+            <h3>Açır Qaynak Güvəni</h3>
+            <p>Brave kimi tam şəffaf! Kodlarımız GitHub-da hər kəsə açıqdır. Təhlükəsizliyinizi rəsmi SHA-256 rəqəmsal imzaları ilə qoruyuruq.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 BionX Technology. Bütün hüquqlar qorunur. Developer: <a href="https://github.com/mustafazadesahangir-star" target="_blank">Mustafa</a></p>
+    </footer>
+
+</body>
+</html>
